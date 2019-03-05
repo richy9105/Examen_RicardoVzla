@@ -1,0 +1,47 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="container">
+<br>
+<br>
+  <div class="row">
+    <div class="col-md-8">
+      <div style="display: block;">
+        <div *ngIf="chart">
+          <canvas id="canvas">{{ chart }}</canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4" name="city" [(ngModel)]="city" (change)="SeleccionaCiudad($event)" style="margin-bottom: 10px" ngDefaultControl>
+      <select class="form-control"  >
+        <option value="OBREGON, MX" selected >OBREGON</option>
+        <option value="NAVOJOA, MX">NAVOJOA</option>
+        <option value="HERMOSILLO, MX">HERMOSILLO</option>
+        <option value="NOGALES, MX">NOGALES</option>
+      </select>
+    </div>
+
+    <div class="col-md-4" name="units" [(ngModel)]="units" (change)="SeleccionaCiudad($event)" style="margin-bottom: 10px" ngDefaultControl>
+      <select class="form-control"  >
+        <option value="M" selected >Celsius</option>
+        <option value="S">FAHRENHEIT</option>
+      </select>
+    </div>
+
+    <div class="col-md-4"  style="margin-bottom: 10px">
+      <br>
+      <br>
+      <table class="table table-responsive table-condensed">
+        <tr>
+          <th >Date</th>
+          <th >Temperature</th>
+        </tr>
+        <tr *ngFor="let d of datos ; let j=index"> 
+          <td >{{d.valid_date}}</td>
+          <td >{{d.temp}}</td>
+        </tr>
+      </table>
+  </div>
+  </div>
+</div>
+
+
